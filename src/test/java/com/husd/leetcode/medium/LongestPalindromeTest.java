@@ -9,7 +9,7 @@ public class LongestPalindromeTest {
     public void longestPalindrome() {
 
         LongestPalindrome longestPalindrome = new LongestPalindrome();
-        String str = longestPalindrome.longestPalindrome("cbbd");
+        String str = longestPalindrome.longestPalindrome("bb");
         System.out.println(str);
     }
 }

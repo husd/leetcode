@@ -24,14 +24,55 @@ package com.husd.leetcode.medium;
  */
 public class LongestPalindrome {
 
-    //初步的动态规划，2维数组记录之前的结果
     public String longestPalindrome(String s) {
         if (s == null || s.length() == 0) return "";
         if (s.length() < 2) return s;
-        int[] exist = new int[128];
+        int max = 2;
+        String target = s.substring(0, 1);
+        for (int start = 0; start < s.length() - 1; start++) {
+            // abcdefg
+            for(int index = start +1;index<s.length();index++) {
+                String ok = isOk(start,index,s);
+                if(ok.length() > 0 && ok.length() >= max) {
+                    max = ok.length();
+                    target = ok;
+                }
+            }
+        }
+        return target;
+    }
 
-        //TODO
-        return null;
+    public String isOk(int start, int end, String s) {
+
+        int _start = start;
+        int _end = end;
+        if (start == end) return "";
+        while (start < end) {
+            if (s.charAt(start) != s.charAt(end)) {
+                //System.out.println("false start : " + _start + " end:" + _end + " s:" + s.substring(_start, _end == s.length() ? _end : _end + 1));
+                return "";
+            }
+            start++;
+            end--;
+        }
+        String ok = s.substring(_start, _end == s.length() ? _end : _end + 1);
+        //System.out.println("success start : " + _start + " end:" + _end + " s:" + ok);
+        return ok;
+    }
+
+    private boolean sameStr(int start, int end, String s) {
+
+        int _s1 = start;
+        int _s2 = end;
+        char _s = s.charAt(start);
+        while (start < end) {
+            if (s.charAt(++start) != _s) {
+                //  System.out.println("----2 start:" + _s1 + " -- end:" + _s2 + " s:" + s + " false");
+                return false;
+            }
+        }
+        //  System.out.println("----3 start:" + _s1 + " -- end:" + _s2 + " s:" + s + " true");
+        return true;
     }
 
 }

@@ -61,10 +61,7 @@ public class FindNumOfValidWords {
             for (int j = 0; j < words[i].length(); j++) {
                 k |= 1 << (words[i].charAt(j) - 'a');
             }
-            Integer c = map.get(k);
-            if (c == null) {
-                c = 0;
-            }
+            Integer c = map.getOrDefault(k, 0);
             map.put(k, ++c);
         }
         List<Integer> target = new ArrayList<>(puzzles.length);
@@ -79,8 +76,7 @@ public class FindNumOfValidWords {
             int count = 0;
             for (int j1 = puzzle; j1 > 0; j1 = (j1 - 1) & puzzle) {
                 if ((first & j1) > 0) {
-                    Integer c1 = map.get(j1);
-                    count = count + (c1 == null ? 0 : c1);
+                    count = count + map.getOrDefault(j1, 0);
                 }
             }
             target.add(count);

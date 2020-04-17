@@ -34,6 +34,7 @@ package com.husd.leetcode.hard;
  *
  * @author hushengdong
  * @date 2020/4/1
+ * @tag 动态规划
  */
 public class MaxProfitOfStock {
 

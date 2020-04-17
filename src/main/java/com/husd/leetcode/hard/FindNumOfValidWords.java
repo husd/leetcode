@@ -49,6 +49,7 @@ import java.util.Map;
  *
  * @author hushengdong
  * @date 2020/4/14
+ * @tag 位运算
  */
 public class FindNumOfValidWords {
 

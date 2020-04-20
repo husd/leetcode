@@ -27,6 +27,7 @@ import java.util.Random;
  *
  * @author hushengdong
  * @date 2020/4/20
+ * @tag 蓄水池抽样
  */
 public class RandomIndex {
 

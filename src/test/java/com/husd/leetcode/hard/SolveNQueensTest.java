@@ -1,8 +1,7 @@
 package com.husd.leetcode.hard;
 
+import com.husd.leetcode.math.SolveNQueens;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class SolveNQueensTest {
 

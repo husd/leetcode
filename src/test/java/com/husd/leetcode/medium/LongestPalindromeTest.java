@@ -1,6 +1,6 @@
 package com.husd.leetcode.medium;
 
-import com.husd.leetcode.medium.LongestPalindrome;
+import com.husd.leetcode.string.LongestPalindrome;
 import org.junit.Test;
 
 public class LongestPalindromeTest {

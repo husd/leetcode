@@ -1,8 +1,7 @@
 package com.husd.leetcode.simple;
 
+import com.husd.leetcode.bit.HammingWeight;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class HammingWeightTest {
 

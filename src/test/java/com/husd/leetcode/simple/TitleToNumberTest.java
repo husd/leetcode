@@ -1,5 +1,6 @@
 package com.husd.leetcode.simple;
 
+import com.husd.leetcode.math.TitleToNumber;
 import org.junit.Test;
 
 public class TitleToNumberTest {

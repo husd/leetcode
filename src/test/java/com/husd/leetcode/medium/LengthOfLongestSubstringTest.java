@@ -1,8 +1,7 @@
 package com.husd.leetcode.medium;
 
+import com.husd.leetcode.string.LengthOfLongestSubstring;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class LengthOfLongestSubstringTest {
 

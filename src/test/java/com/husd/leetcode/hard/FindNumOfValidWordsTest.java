@@ -1,5 +1,6 @@
 package com.husd.leetcode.hard;
 
+import com.husd.leetcode.bit.FindNumOfValidWords;
 import org.junit.Test;
 
 public class FindNumOfValidWordsTest {

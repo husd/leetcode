@@ -48,4 +48,30 @@ public class Utils {
         i = i + (i >>> 16);
         return i & 0x3f;
     }
+
+    //把一个数字的低位的几个数字设置为0
+    public static int setLow0(int num, int count) {
+
+        return (num >> count) << count;
+    }
+
+    //把一个数字的高位的几个数字设置为0
+    public static int setHigh0(int num, int count) {
+
+        return (num << count) >> count;
+    }
+
+    // 把1个整数的某个位置的位，设置位0
+    public static int setPos0(int num, int pos) {
+
+        int b = 1 << (pos - 1);
+        return num & ~b;
+    }
+
+    // 把1个整数的某个位置的位，设置位1
+    public static int setPos1(int num, int pos) {
+
+        int b = 1 << (pos - 1);
+        return num | b;
+    }
 }

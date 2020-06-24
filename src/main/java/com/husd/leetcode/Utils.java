@@ -58,7 +58,8 @@ public class Utils {
     //把一个数字的高位的几个数字设置为0
     public static int setHigh0(int num, int count) {
 
-        return (num << count) >> count;
+        //TODO
+        return 0;
     }
 
     // 把1个整数的某个位置的位，设置位0
@@ -73,5 +74,19 @@ public class Utils {
 
         int b = 1 << (pos - 1);
         return num | b;
+    }
+
+    //获取num的奇数位，把偶数位全部设置位0
+    public static int oddBit(int num) {
+
+        //0x55555555 = 0b0101_0101_0101_0101_0101_0101_0101_0101
+        return num & 0x55555555;
+    }
+
+    //获取num的偶数位，把奇数位全部设置位0
+    public static int evenBit(int num) {
+
+        //0xaaaaaaaa = 0b1010_1010_1010_1010_1010_1010_1010_1010
+        return num & 0xaaaaaaaa;
     }
 }

@@ -1,7 +1,5 @@
 package com.husd.leetcode.bit;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-
 import java.util.HashSet;
 import java.util.Set;
 

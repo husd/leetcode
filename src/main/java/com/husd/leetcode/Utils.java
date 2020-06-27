@@ -89,4 +89,39 @@ public class Utils {
         //0xaaaaaaaa = 0b1010_1010_1010_1010_1010_1010_1010_1010
         return num & 0xaaaaaaaa;
     }
+
+    //判断字节长度 ，UTF-8 合法的是 1 - 4
+    //判断字节的低位有几个1 11000000 返回2
+    //                   10000000
+    public static int countN(int num) {
+
+        int mask = 1 << 7;
+        int res = 0;
+        while((num & mask) > 0) {
+            res++;
+            mask = mask >> 1;
+        }
+        return res;
+    }
+
+    //判断字节是否是10开头的 例如 1010000 1011111
+    public static boolean valid10(int num) {
+
+        int mask1 = 1 << 7;
+        int mask2 = 1 << 6;
+        return (num & mask1) > 0 && ((num & mask2) == 0);
+    }
+
+    //是否是2的幂次方 2的幂次方，表示是数字只有1个1
+    // 100000000
+    // 1000 这种的
+    public static boolean isPowerOfTwo(int n) {
+        if (n == 0) return false;
+        long x = (long) n;
+        return (x & (x - 1)) == 0;
+    }
+
+    public static boolean isPowerOfFour(int num) {
+        return (num > 0) && ((num & (num - 1)) == 0) && ((num & 0xaaaaaaaa) == 0);
+    }
 }

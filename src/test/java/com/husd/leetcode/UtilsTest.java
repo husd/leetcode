@@ -12,7 +12,6 @@ public class UtilsTest {
     @Test
     public void test1() {
 
-        int n = Utils.setHigh0(7, 2);
-        System.out.println(n);
+
     }
 }

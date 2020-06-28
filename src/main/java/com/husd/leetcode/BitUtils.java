@@ -1,12 +1,16 @@
 package com.husd.leetcode;
 
 /**
- * 这里是这个类的功能描述
+ * 位操作的一些需要知道的基础理论知识
+ *
+ * 异或操作 :
+ *  n = n ^ 0 n是任意一个值
+ *
  *
  * @author hushengdong
  * @date 2020/3/27
  */
-public class Utils {
+public class BitUtils {
 
     /**
      * 判断一个整数在乘以10之后，是否会溢出的方法
@@ -49,20 +53,11 @@ public class Utils {
         return i & 0x3f;
     }
 
-    //把一个数字的低位的几个数字设置为0
-    public static int setLow0(int num, int count) {
-
-        return (num >> count) << count;
-    }
-
-    //把一个数字的高位的几个数字设置为0
-    public static int setHigh0(int num, int count) {
-
-        //TODO
-        return 0;
-    }
-
-    // 把1个整数的某个位置的位，设置位0
+    // 把1个整数的某个位置的位，设置位0 pos是从右向左计算
+    // 比如: 11的2进制表示法是 1011 要把第2位，设置为0 变成: 1001
+    // setPos0(11,2)
+    // 首先要构造1个数字 1101 因为 1011 & 1101 = 1001
+    // 因为 1101 = 0010 取反，所以第2位就是 1 << (pos -1) 之后，再取反
     public static int setPos0(int num, int pos) {
 
         int b = 1 << (pos - 1);
@@ -70,6 +65,8 @@ public class Utils {
     }
 
     // 把1个整数的某个位置的位，设置位1
+    //拿11举例: 1011 把第2位设置位1 就是 1011 ｜ 0010
+    //0010 = 1 << (pos -1) 所以很容易理解
     public static int setPos1(int num, int pos) {
 
         int b = 1 << (pos - 1);
@@ -123,5 +120,19 @@ public class Utils {
 
     public static boolean isPowerOfFour(int num) {
         return (num > 0) && ((num & (num - 1)) == 0) && ((num & 0xaaaaaaaa) == 0);
+    }
+
+    // 讨论下 x & -x 的结果
+    // 10进制下的 11 :                             1011
+    // -11         : 11111111111111111111111111110101
+
+    //因为负数，使用正数，取反 +1 得到的 ，所以 x & -x 就得到了该值最右边的1个1
+    public static int rightDiff1(int num) {
+
+        return num & (-num);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(1);
     }
 }

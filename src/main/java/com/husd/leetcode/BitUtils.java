@@ -6,6 +6,7 @@ package com.husd.leetcode;
  * 异或操作 :
  *  n = n ^ 0 n是任意一个值
  *
+ *  // 101 ^ 111 = 010 是不是看到了～？
  *
  * @author hushengdong
  * @date 2020/3/27
@@ -131,6 +132,8 @@ public class BitUtils {
 
         return num & (-num);
     }
+
+
 
     public static void main(String[] args) {
         System.out.println(1);

@@ -1,16 +1,27 @@
 package com.husd.leetcode.entry;
 
 /**
- * 这里的注释内容，需要对类的使用做一个简单的说明。
+ * 树的表示方法
  *
  * @author hushengdong
  * @create 2019-10-30 16:35:00
  */
 public class TreeNode {
 
-    public TreeNode root;
-
+    public int val;
     public TreeNode left;
-
     public TreeNode right;
+
+    TreeNode() {
+    }
+
+    TreeNode(int val) {
+        this.val = val;
+    }
+
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
 }

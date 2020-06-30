@@ -1,23 +1,23 @@
 package com.husd.leetcode.bit;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
  * 78. 子集
- *
+ * <p>
+ * https://leetcode-cn.com/problems/power-set-lcci/
+ * <p>
  * 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
- *
+ * <p>
  * 说明：解集不能包含重复的子集。
- *
+ * <p>
  * 示例:
- *
+ * <p>
  * 输入: nums = [1,2,3]
  * 输出:
  * [
- *   [3],
+ * [3],
  *   [1],
  *   [2],
  *   [1,2,3],
@@ -26,7 +26,7 @@ import java.util.List;
  *   [1,2],
  *   []
  * ]
- *
+ * <p>
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/subsets
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
@@ -55,21 +55,21 @@ public class Subsets {
 
         List<List<Integer>> res = new ArrayList<>();
         res.add(new ArrayList<>());
-        if(nums.length == 1) {
+        if (nums.length == 1) {
             List<Integer> t = new ArrayList<>(1);
             t.add(nums[0]);
             res.add(t);
             return res;
         }
-        for(int i = 0;i<nums.length;i++) {
-            int [] temp = new int[nums.length -i -1];
-            for(int j = 0;j<temp.length;j++) {
-                temp[j] = nums[i+1+j];
+        for (int i = 0; i < nums.length; i++) {
+            int[] temp = new int[nums.length - i - 1];
+            for (int j = 0; j < temp.length; j++) {
+                temp[j] = nums[i + 1 + j];
             }
             List<Integer> t = new ArrayList<>(1);
             t.add(nums[i]);
             List<List<Integer>> otherList = subsets(temp);
-            for(List<Integer> a : otherList) {
+            for (List<Integer> a : otherList) {
                 a.add(nums[i]);
                 res.add(a);
             }
@@ -79,6 +79,7 @@ public class Subsets {
 
     List<List<Integer>> output = new ArrayList();
     int n, k;
+
     //回溯方法
     public List<List<Integer>> subsets2(int[] nums) {
 
@@ -121,8 +122,8 @@ public class Subsets {
         List<List<Integer>> output = new ArrayList();
         int n = nums.length;
         //生成1个整数，长度是nums.length+1
-        int start = (int)Math.pow(2, n);
-        int end = (int)Math.pow(2, n + 1);
+        int start = (int) Math.pow(2, n);
+        int end = (int) Math.pow(2, n + 1);
         for (int i = start; i < end; ++i) {
             // generate bitmask, from 0..00 to 1..11
             String bitmask = Integer.toBinaryString(i).substring(1);

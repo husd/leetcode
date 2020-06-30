@@ -8,6 +8,12 @@ package com.husd.leetcode;
  *
  *  // 101 ^ 111 = 010 是不是看到了～？
  *
+ *  位操作的一些基础知识
+ *  尤其是异或
+ *
+ *  0 ^ n = n
+ *  n ^ n = 0
+ *
  * @author hushengdong
  * @date 2020/3/27
  */
@@ -132,8 +138,6 @@ public class BitUtils {
 
         return num & (-num);
     }
-
-
 
     public static void main(String[] args) {
         System.out.println(1);

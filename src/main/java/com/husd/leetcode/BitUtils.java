@@ -2,17 +2,17 @@ package com.husd.leetcode;
 
 /**
  * 位操作的一些需要知道的基础理论知识
- *
+ * <p>
  * 异或操作 :
- *  n = n ^ 0 n是任意一个值
- *
- *  // 101 ^ 111 = 010 是不是看到了～？
- *
- *  位操作的一些基础知识
- *  尤其是异或
- *
- *  0 ^ n = n
- *  n ^ n = 0
+ * n = n ^ 0 n是任意一个值
+ * <p>
+ * // 101 ^ 111 = 010 是不是看到了～？
+ * <p>
+ * 位操作的一些基础知识
+ * 尤其是异或
+ * <p>
+ * 0 ^ n = n
+ * n ^ n = 0
  *
  * @author hushengdong
  * @date 2020/3/27
@@ -101,7 +101,7 @@ public class BitUtils {
 
         int mask = 1 << 7;
         int res = 0;
-        while((num & mask) > 0) {
+        while ((num & mask) > 0) {
             res++;
             mask = mask >> 1;
         }
@@ -137,6 +137,24 @@ public class BitUtils {
     public static int rightDiff1(int num) {
 
         return num & (-num);
+    }
+
+    //求绝对值，注意 31是因为int是32位
+    public static int abs(int num) {
+
+        return (num ^ (num >> 31)) - (num >> 31);
+    }
+
+    //判断1个数字是奇数
+    public static boolean isOddNum(int n) {
+
+        return (n & 1) == 1;
+    }
+
+    //判断1个数字是偶数
+    public static boolean isEvenNum(int n) {
+
+        return (n & 1) == 0;
     }
 
     public static void main(String[] args) {

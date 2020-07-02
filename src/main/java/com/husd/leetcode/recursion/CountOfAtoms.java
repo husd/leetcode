@@ -56,6 +56,7 @@ public class CountOfAtoms {
     Map<String, Integer> m = new HashMap<>();
 
     //递归写法
+    //TODO 值得一看
     public String countOfAtoms(String formula) {
 
         count(formula, 0, formula.length(), 1);
@@ -70,6 +71,44 @@ public class CountOfAtoms {
         }
         return sb.toString();
     }
+
+    //H2O
+    // 返回的是新的index
+    private int count2(String formula, int start, int end, int index) {
+
+        char c = formula.charAt(start);
+        int strEnd = start + 1;
+        if(strEnd == end) {
+            String str = String.valueOf(c);
+            int c1 = m.getOrDefault(str,0);
+            int c2 = index;
+            m.put(str,c1+c2);
+            return 1;
+        }
+        int count = 1;
+        //原子的定义
+        StringBuilder str = new StringBuilder();
+        str.append(c);
+        for(int i=start + 1;i<end;i++) {
+            //2步 第一步找原子的定义
+            //第二步找原子的数量
+            //
+            char c1 = formula.charAt(i);
+            boolean a = i == end - 1;
+            if(bigC(c1) || left(c1) || a) {
+                int c3 = a ? 1 : getCount(formula.charAt(i+1));
+                String str1 = str.toString();
+                int cc = m.getOrDefault(str1,0);
+                c3  = c3 * index;
+                m.put(str1,cc + c3);
+            } else {
+                str.append(c1);
+            }
+        }
+        return 0;
+    }
+
+
 
     //K4(ON(SO3)2)2
     private int count(String formula, int start, int end, int index) {

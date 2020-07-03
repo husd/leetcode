@@ -1,4 +1,4 @@
-package com.husd.leetcode.entry;
+package com.husd.leetcode.linkedlist;
 
 /**
  * 这里的注释内容，需要对类的使用做一个简单的说明。

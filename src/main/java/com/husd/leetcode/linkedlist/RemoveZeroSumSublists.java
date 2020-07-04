@@ -41,27 +41,60 @@ package com.husd.leetcode.linkedlist;
  */
 public class RemoveZeroSumSublists {
 
+    // 2 3 -3 3 2 -2
+
+    //TODO 值得一看
     public ListNode removeZeroSumSublists(ListNode head) {
 
         ListNode current = head;
         ListNode pre = null;
+        int [] val = new int[1001];
+
+        int index = 0;
+        while(current != null) {
+            val[index++] = current.val;
+        }
+
+        //for(int i = 0;i<)
+
+        current = head;
         while(current != null && current.next != null) {
             if(current.val < 0) {
                 //2中情况可能为0
-                //向前为0
-                int sum = current.val;
-                ListNode p = pre;
-                while(sum <=0 && pre != null) {
-                    sum = sum + pre.val;
-                    pre = null;
-                }
-
+                //向前为0 先不考虑
                 //向后为0
+                int sum = current.val;
+                ListNode c = current.next;
+                while(sum <0 && c != null && c.val > 0) {
+                    sum += c.val;
+                    c = c.next;
+                }
+                if(sum == 0) {
+                    // find it
+                    pre.next = c == null ? null : c.next;
+                    current = c == null ?  null : c.next;
+                } else {
+                    pre = current;
+                    current = current.next;
+                }
             } else {
                 pre = current;
                 current = current.next;
             }
         }
         return head;
+    }
+
+    public static void main(String[] args) {
+
+        RemoveZeroSumSublists m = new RemoveZeroSumSublists();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(-2);
+        head.next.next.next = new ListNode(-3);
+        head.next.next.next.next = new ListNode(3);
+        ListNode c = m.removeZeroSumSublists(head);
+        String s = c.toString1();
+        System.out.printf(s);
     }
 }

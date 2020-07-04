@@ -18,4 +18,19 @@ public class ListNode {
     public String toString() {
         return " " + val + " - " + (next == null ? null : next.val);
     }
+
+    public String toString1() {
+
+        StringBuilder sb = new StringBuilder();
+
+        ListNode c = next;
+        sb.append(val);
+        sb.append(" ");
+        while(c != null) {
+            sb.append(c.val);
+            sb.append(" ");
+            c = c.next;
+        }
+        return sb.toString();
+    }
 }

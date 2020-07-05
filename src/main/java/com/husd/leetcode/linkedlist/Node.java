@@ -10,6 +10,9 @@ class Node {
     Node next;
     Node random;
 
+    public Node prev;
+    public Node child;
+
     public Node(int val) {
         this.val = val;
         this.next = null;

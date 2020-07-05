@@ -20,7 +20,27 @@ package com.husd.leetcode.linkedlist;
  */
 public class DeleteDuplicates {
 
+    //TODO 值得一看 尾巴插法
     public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) return head;  // 若head为空则直接返回null
+        ListNode dummy = new ListNode(-1);  // 建立一个虚拟头结点
+        ListNode tail = dummy;  // 定义一个尾巴，用于尾插法。
+        for (ListNode curr = head, next = head; curr != null; curr = next) {
+            while (next != null && next.val == curr.val) next = next.next;  // 只要r不为空并且与l的值相等则一直向后移动
+
+            //指定一个尾巴，然后把元素一直向后加
+            //curr.next = next 说明没有重复元素
+            if (curr.next == next) {  // 若长度为1，则通过尾插法加入。
+                tail.next = curr;  // 基本的尾插法
+                tail = curr;
+                tail.next = null;  // 这里记得将尾部的后面置为null，不然可能后面会带着一些其他的节点。
+            }
+        }
+        return dummy.next;
+    }
+
+
+    public ListNode deleteDuplicates1(ListNode head) {
 
         if(head == null || head.next == null) return head;
         //先把头部相等的删除了

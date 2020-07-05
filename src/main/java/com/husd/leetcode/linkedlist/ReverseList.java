@@ -17,6 +17,7 @@ package com.husd.leetcode.linkedlist;
 public class ReverseList {
 
     //TODO 值得一看
+    //TODO 好好看看
     //迭代 A - B - C - D  -> D - C - B - A
     public ListNode reverseList(ListNode head) {
 

@@ -1,7 +1,5 @@
 package com.husd.leetcode.linkedlist;
 
-import com.husd.leetcode.entry.ListNode;
-
 /**
  * 面试题 02.04. 分割链表
  * <p>
@@ -21,24 +19,46 @@ import com.husd.leetcode.entry.ListNode;
 public class Partition {
 
     // TODO 值得一看
+    //生成2个节点 1个比x小 1个比X大
     public ListNode partition(ListNode head, int x) {
 
-        if (head == null) return null;
-        ListNode res = new ListNode(-1);
-        res.next = head;
-        ListNode prev = head;
-        head = head.next;
-        while (head != null) {
-            if (head.val < x) {
-                prev.next = head.next;
-                head.next = res.next;
-                res.next = head;
-                head = prev.next;
+
+        ListNode before_head = new ListNode(0);
+        //这个假节点非常重要 仔细体会用法
+        ListNode before = before_head;
+        ListNode after_head = new ListNode(0);
+        ListNode after = after_head;
+
+        ListNode curr = head;
+
+        while(curr != null) {
+
+            if(curr.val < x) {
+                before.next = curr;
+                before = before.next;
             } else {
-                prev = prev.next;
-                head = head.next;
+                after.next = curr;
+                after = after.next;
             }
+            curr = curr.next;
         }
-        return res.next;
+        //after.next非常重要，因为 after.next指向了原来的链表，如果不设置为null,会在链表上形成环
+        after.next = null;
+        before.next = after_head.next;
+
+        return before_head.next;
+    }
+
+    public static void main(String[] args) {
+
+        Partition m = new Partition();
+
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(4);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(2);
+        head.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next = new ListNode(2);
+        m.partition(head,3);
     }
 }

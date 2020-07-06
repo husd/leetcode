@@ -30,11 +30,6 @@ public class BitUtils {
         return (num * 10) / 10 != num;
     }
 
-    // 辗转相除法 求最大公约数
-    public static int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
-    }
-
     //求1个数的二进制表示法中，1的个数 结果称为 pop count，或 汉明权重
     //例如： 10010 返回2
     //例如： 10011 返回3

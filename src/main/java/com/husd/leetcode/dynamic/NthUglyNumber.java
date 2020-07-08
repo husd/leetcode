@@ -49,10 +49,10 @@ public class NthUglyNumber {
     }
 
     public int nthUglyNumber(int n, int a, int b, int c) {
-        int a1 = 1, b1 = 1, c1 = 1;
+        int a1 = 0, b1 = 0, c1 = 0;
         int[] dp = new int[n];
         for (int i = 0; i < n; i++) {
-            int m1 = a1 * a, m2 = b1 * b, m3 = c1 * c;
+            int m1 = dp[a1] * a, m2 = dp[b1] * b, m3 = dp[c1] * c;
             dp[i] = Math.min(m1, Math.min(m2, m3));
             if (dp[i] == m1) a1++;
             if (dp[i] == m2) b1++;
@@ -65,7 +65,7 @@ public class NthUglyNumber {
     public int nthUglyNumber2(int n, int a, int b, int c) {
         int a1 = 1, b1 = 1, c1 = 1;
         int res = Integer.MAX_VALUE;
-        for (int i = 0; i < n+19; i++) {
+        for (int i = 0; i < n + 19; i++) {
             int m1 = a1 * a, m2 = b1 * b, m3 = c1 * c;
             int min = Math.min(m1, Math.min(m2, m3));
             if (min == m1) a1++;
@@ -80,7 +80,7 @@ public class NthUglyNumber {
 
         NthUglyNumber m = new NthUglyNumber();
         //int n = m.nthUglyNumber(5, 2, 11, 13);
-        int n = m.nthUglyNumber2(1000000000,2,217983653,336916467);
+        int n = m.nthUglyNumber2(1000000000, 2, 217983653, 336916467);
 
         System.out.println(n);
     }

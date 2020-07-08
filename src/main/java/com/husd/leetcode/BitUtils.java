@@ -14,6 +14,11 @@ package com.husd.leetcode;
  * 0 ^ n = n
  * n ^ n = 0
  *
+ * // 怎么消掉1个2进制的最右边的1 例如 1110110110000 -> 1110110100000 答案是： n & (n-1)
+ * // 怎么判断奇数 偶数 方法： n & 1 == 0 说明是偶数 n & 1 == 1 说明是奇数
+ * // 怎么计算2进制中位1的数量 JDK有自带的方法 有其它循环方法 见popCount
+ * //
+ *
  * @author hushengdong
  * @date 2020/3/27
  */
@@ -153,6 +158,6 @@ public class BitUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(1);
+        System.out.println(12 ^ 0);
     }
 }

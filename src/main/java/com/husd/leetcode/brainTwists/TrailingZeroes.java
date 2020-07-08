@@ -1,4 +1,4 @@
-package com.husd.leetcode.math;
+package com.husd.leetcode.brainTwists;
 
 /**
  * 16.05. 阶乘尾数
@@ -28,6 +28,7 @@ public class TrailingZeroes {
 
     // 阶乘中，末尾的0，说明有10  10 = 5 * 2 所以计算5和2的数量
     // 有5必有2 因为 5 * 4 10 * 8 15 * 14 = 5 * 3 * 7 * 2 所以计算有几个5就行了
+    // 这种题没有营养
     public int trailingZeroes(int n) {
 
         int target = 0;

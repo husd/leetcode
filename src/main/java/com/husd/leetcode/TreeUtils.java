@@ -31,6 +31,7 @@ public class TreeUtils {
         return new TreeNode(n);
     }
 
+    //DFS 搜索算法
     //一共有3中遍历方式
 
     // 前 中 后
@@ -55,18 +56,17 @@ public class TreeUtils {
         return res;
     }
 
-    public static List<Integer> mid(TreeNode head) {
+    public static List<Integer> mid(TreeNode head, List<Integer> res) {
 
         if (head == null) {
-            return Lists.newArrayList();
+            return res;
         }
-        List<Integer> res = new ArrayList<>(10);
         if (head.left != null) {
-            res.addAll(pre(head.left));
+            res.addAll(mid(head.left, res));
         }
         res.add(head.val);
         if (head.right != null) {
-            res.addAll(pre(head.right));
+            res.addAll(mid(head.right, res));
         }
         return res;
     }
@@ -78,12 +78,14 @@ public class TreeUtils {
         }
         List<Integer> res = new ArrayList<>(10);
         if (head.left != null) {
-            res.addAll(pre(head.left));
+            res.addAll(last(head.left));
         }
         if (head.right != null) {
-            res.addAll(pre(head.right));
+            res.addAll(last(head.right));
         }
         res.add(head.val);
         return res;
     }
+
+
 }

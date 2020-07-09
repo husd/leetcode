@@ -1,7 +1,7 @@
 package com.husd.leetcode;
 
 /**
- * 数据
+ * 数学问题 多 而且杂 不建议深入学
  * <p>
  * 1： 开平方 3种方法：递归 二分查找 牛顿迭代法
  * 2：求数组的所有排列组合 ，给一个数组 int[] arr ，求arr的所有可能排列组合 （重要） 是很多题目的暴力解法
@@ -34,6 +34,8 @@ package com.husd.leetcode;
  * 这样就能知道n以内的所有素数了
  *
  * 9： 判断单个数字是不是素数
+ *
+ *
  *
  * @author hushengdong
  */

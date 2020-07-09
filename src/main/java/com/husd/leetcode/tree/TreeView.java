@@ -70,14 +70,25 @@ public class TreeView {
         return res;
     }
 
+    //DFS 搜索算法
+    public static ArrayList<Integer> inorder(TreeNode root, ArrayList<Integer> arr) {
+        if (root == null) return arr;
+        inorder(root.left, arr);
+        arr.add(root.val);
+        inorder(root.right, arr);
+        return arr;
+    }
+
     public static void main(String[] args) {
 
         TreeView treeView = new TreeView();
 
         TreeNode t = TreeUtils.mockTree();
 
-        System.out.println("前序遍历： " + treeView.pre(t));
-        System.out.println("中序遍历： " + treeView.mid(t));
-        System.out.println("后序遍历： " + treeView.last(t));
+        System.out.println("dfs 前序遍历： " + treeView.pre(t));
+        System.out.println("dfs 中序遍历： " + treeView.mid(t));
+        System.out.println("dfs 后序遍历： " + treeView.last(t));
+
+        System.out.println("bfs 中序遍历： " + inorder(t,new ArrayList<>()));
     }
 }

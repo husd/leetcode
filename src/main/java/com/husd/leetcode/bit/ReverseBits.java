@@ -60,6 +60,7 @@ public class ReverseBits {
     // 如果第i位是1 那么第31-i位就是1 因为初始值是res = 0 ，所以需要 res = res ^ (1 << (31 - i)) 就把第31-i修改为1了
     public int reverseBits(int n) {
 
+        //这个算法不正确，有待修改
         int res = 0;
         for (int i = 0; i < 32; i++) {
             res ^= (n & (1 << i)) == 0 ? 0 : 1 << (31 - i);

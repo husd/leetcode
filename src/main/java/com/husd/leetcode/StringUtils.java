@@ -37,4 +37,26 @@ public class StringUtils {
         }
         return false;
     }
+
+    public static boolean equals(CharSequence cs1, CharSequence cs2) {
+        if (cs1 == cs2) {
+            return true;
+        } else if (cs1 != null && cs2 != null) {
+            return cs1 instanceof String && cs2 instanceof String ? cs1.equals(cs2) : CharSequenceUtils.regionMatches(cs1, false, 0, cs2, 0, Math.max(cs1.length(), cs2.length()));
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean equalsIgnoreCase(CharSequence str1, CharSequence str2) {
+        if (str1 != null && str2 != null) {
+            if (str1 == str2) {
+                return true;
+            } else {
+                return str1.length() != str2.length() ? false : CharSequenceUtils.regionMatches(str1, true, 0, str2, 0, str1.length());
+            }
+        } else {
+            return str1 == str2;
+        }
+    }
 }

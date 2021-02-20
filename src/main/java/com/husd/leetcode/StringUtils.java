@@ -1,11 +1,27 @@
 package com.husd.leetcode;
 
+import java.text.DecimalFormat;
+
 /**
  * 这个是字符串操作的一个巧合用法
  *
  * @author hushengdong
  */
 public class StringUtils {
+
+    private final static String STR_FORMAT00 = "00";
+    private final static String STR_FORMAT000 = "000";
+
+    //格式化补0
+    private static String toStringWith00(int num) {
+        DecimalFormat df = new DecimalFormat(STR_FORMAT00);
+        return df.format(num);
+    }
+
+    private static String toStringWith000(int num) {
+        DecimalFormat df = new DecimalFormat(STR_FORMAT000);
+        return df.format(num);
+    }
 
     // 假设一共有26个小写字母，那么每个小写字母，按顺序，可以组成一个整数，整数是32位，每个数字占据1位
     // 例如abda 可以组成一个整数 1011

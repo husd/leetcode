@@ -1,7 +1,7 @@
 package com.husd.leetcode.string;
 
 /**
- * 两个字符串最大公共子序列
+ * 最长公共子序列问题(LCS问题)
  *
  * @author hushengdong
  */

@@ -24,22 +24,23 @@ public class MergeSort {
         int l = low;
         int r = mid + 1;
         int inx = low;
-        while (l < mid && r <= high) {
+        while (l <= mid && r <= high) {
 
             if (a[l] < a[r]) {
-                tmp[inx] = a[l++];
+                tmp[inx++] = a[l++];
             } else {
-                tmp[inx] = a[r++];
+                tmp[inx++] = a[r++];
             }
-            inx++;
         }
-        while (l < mid) {
+        while (l <= mid) {
             tmp[inx++] = a[l++];
         }
         while (r <= high) {
             tmp[inx++] = a[r++];
         }
-        while (inx > low) {
+        //实际的长度应该是inx-1 inx是下一个值
+        inx--;
+        while (inx >= low) {
             a[inx] = tmp[inx];
             inx--;
         }
@@ -47,7 +48,7 @@ public class MergeSort {
 
     public static void main(String[] args) {
 
-        int[] a = {5, 4, 3, 2, 10, 6, 7, 1, 8, 9};
+        int[] a = {5, 4, 3, 2, 10, 6, 7, 1, 8, 9, 18, -1, 29, -3, 30, -30};
         int[] tmp = new int[a.length];
         int n = a.length;
         MergeSort.sort(a, 0, n - 1, tmp);
